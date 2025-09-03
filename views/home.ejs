@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Welcome to MiniReddit</h1>
+    <p class="lead text-center">
+        Explore communities, discover posts, and connect with others.  
+        Choose a subreddit below to start browsing!
+    </p>
+    <hr>
+
+    <div class="row">
+        <% for(let subreddit in redditData) { %>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><%= redditData[subreddit].name %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <%= redditData[subreddit].subscribers.toLocaleString() %> subscribers
+                    </h6>
+                    <p class="card-text"><%= redditData[subreddit].description %></p>
+                    <a href="/r/<%= subreddit %>" class="btn btn-primary btn-sm">Visit Subreddit</a>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,17 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+<div class="container text-center mt-5">
+    <h1 class="display-4 text-danger">404 - Subreddit Not Found</h1>
+    <p class="lead">
+        Oops! We couldn’t find the subreddit <strong>/r/<%= subreddit %></strong>.
+    </p>
+    <p>Maybe it doesn’t exist, or maybe you mistyped the name.</p>
+
+    <img src="https://media.giphy.com/media/14uQ3cOFteDaU/giphy.gif" 
+         alt="Not Found Meme" 
+         class="img-fluid rounded my-4" 
+         style="max-width: 400px;">
+</div>
+
+<%- include('partials/footer') %>

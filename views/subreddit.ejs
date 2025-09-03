@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+<%- include('partials/navbar') %>
+
+<div class="container mt-4">
+    <h1 class="mb-3">Browsing the <%= name %> Subreddit</h1>
+    <p class="lead"><%= description %></p>
+    <p class="text-muted"><%= subscribers.toLocaleString() %> subscribers</p>
+    <hr>
+
+    <% if (posts && posts.length > 0) { %>
+        <% posts.forEach((post, index) => { %>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><%= post.title %></h5>
+                    <p class="card-subtitle mb-2 text-muted">Posted by <b><%= post.author %></b></p>
+                    
+                    <% if (post.img) { %>
+                        <div class="post-image-wrapper my-3">
+                            <img src="<%= post.img %>" alt="Post image" class="img-fluid fixed-post-img rounded">
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p class="text-muted">No posts available in this subreddit yet. Be the first to post!</p>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>
